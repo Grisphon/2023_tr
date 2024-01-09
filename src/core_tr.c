@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include "stutr.h"
 
-int freeable(char *new_text)
+static int freeable(char *new_text)
 {
     int nb_char;
 
