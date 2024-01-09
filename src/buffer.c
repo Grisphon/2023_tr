@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdlib.h>
 #include "stutr.h"
 
 char *buffer()
