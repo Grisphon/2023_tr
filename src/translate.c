@@ -1,28 +1,21 @@
 #include <stdlib.h>
+#include <unistd.h>
 #include "stutr.h"
 
 int translate(char *to_replace, char *substitutes)
 {
     char *buffer;
     int count;
-    char *new_text;
-    int letter;
+    int size_read;
 
     count = 0;
-    letter = 0;
     if (stu_strlen(to_replace) != stu_strlen(substitutes))
         return 1;
-    while (count < stu_strlen(buffer)) {
-        while (letter < stu_strlen(to_replace)) {
-            if (buffer[count] == to_replace[letter]) {
-                new_text[count] = substitutes[letter];
-                letter = 0;
-                count += 1;
-            }
-            letter += 1;
-        }
-        new_text[count] = buffer[count];
-        count += 1;
+    buffer = malloc(sizeof(char) * 100);
+    size_read = read(0, buffer, 100);
+    while (size_read > 0) {
+        core(count, to_replace, substitutes, buffer);
+        size_read = read(0, buffer, 100);
     }
-    write(1, new_text, 10);
+    return 0;
 }
