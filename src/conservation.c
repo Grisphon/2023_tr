@@ -15,6 +15,6 @@ int conservation(char *to_keep)
         core_kp(count, to_keep, buffer);
         size_read = read(0, buffer, 100);
     }
+    free(buffer);
     return 0;
-
 }

@@ -15,5 +15,6 @@ int delete(char *to_delete)
         core_dlt(count, to_delete, buffer);
         size_read = read(0, buffer, 100);
     }
+    free(buffer);
     return 0;
 }
