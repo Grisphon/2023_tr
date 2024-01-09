@@ -1,6 +1,12 @@
-int no_option(char **argv)
+int no_option(int argc, char **argv)
 {
-    if (argv[1][0] == '-')
-        return 2;
-    return 1;
+    int count;
+
+    count = 1;
+    while (count < argc) {
+        if (argv[count][0] != '-')
+            return count;
+        count += 1;
+    }
+    return -1;
 }
