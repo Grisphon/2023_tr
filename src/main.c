@@ -10,7 +10,7 @@ int main(int argc, char **argv)
         if (has_opt(argc, argv, 'c') == 1) {
             //    conservation(argv[no_option(argv)]);
         } else {
-            //  delete(argv[no_option(argv)]);
+            delete(argv[no_option(argv)]);
         }
     } else {
         translate(argv[1], argv[2]);
