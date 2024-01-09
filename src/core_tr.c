@@ -2,6 +2,15 @@
 #include <unistd.h>
 #include "stutr.h"
 
+int freeable(char *new_text)
+{
+    int nb_char;
+
+    nb_char = write(1, new_text, stu_strlen(new_text));
+    free(new_text);
+    return nb_char;
+}
+
 int core_tr(int count, char *to_replace, char *substitutes, char *buffer)
 {
     int letter;
@@ -26,5 +35,5 @@ int core_tr(int count, char *to_replace, char *substitutes, char *buffer)
         count += 1;
         letter = 0;
     }
-    return write(1, new_text, stu_strlen(new_text));
+    return freeable(new_text);
 }

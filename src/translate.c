@@ -17,5 +17,6 @@ int translate(char *to_replace, char *substitutes)
         core_tr(count, to_replace, substitutes, buffer);
         size_read = read(0, buffer, 100);
     }
+    free(buffer);
     return 0;
 }
