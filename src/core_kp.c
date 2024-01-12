@@ -11,6 +11,19 @@ static int freeable(char *new_text)
     return nb_char;
 }
 
+static int has_carriage_return(char *option)
+{
+    int count;
+
+    count = 0;
+    while (count < stu_strlen(option)) {
+        if (option[count] == '\\' && option[count + 1] == 'n')
+            return 1;
+        count += 1;
+    }
+    return 0;
+}
+
 int core_kp(int count, char *to_keep, char *buffer)
 {
     int letter;
@@ -24,7 +37,11 @@ int core_kp(int count, char *to_keep, char *buffer)
     letter = 0;
     while (count < stu_strlen(buffer)) {
         while (letter < stu_strlen(to_keep)) {
-            if (buffer[count] == to_keep[letter]) {
+            if (has_carriage_return(to_keep) == 1 && buffer[count] == '\n') {
+                check = 1;
+                new_text[count - amount_rm] = '\n';
+                letter = stu_strlen(to_keep);
+            } else if (buffer[count] == to_keep[letter]) {
                 check = 1;
                 new_text[count - amount_rm] = buffer[count];
                 letter = stu_strlen(to_keep);
