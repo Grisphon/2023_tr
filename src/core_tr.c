@@ -18,5 +18,6 @@ int core_tr(int count, char *to_replace, char *substitutes, char *buffer)
         count += 1;
         letter = 0;
     }
+    write(1, buffer, stu_strlen(buffer));
     return 0;
 }

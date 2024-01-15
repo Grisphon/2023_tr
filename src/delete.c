@@ -11,8 +11,10 @@ int delete(char *to_delete)
     count = 0;
     buffer = malloc(sizeof(char) * 100);
     size_read = read(0, buffer, 100);
-    while (size_read > 0) {
+    while (size_read != 0) {
         core_dlt(count, to_delete, buffer);
+        free(buffer);
+        buffer = malloc(sizeof(char) * 100);
         size_read = read(0, buffer, 100);
     }
     free(buffer);
