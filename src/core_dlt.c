@@ -11,15 +11,13 @@ static int freeable(char *new_text)
     return nb_char;
 }
 
-int core_dlt(int count, char *to_delete, char *buffer)
+int core_dlt(int check, int count, char *to_delete, char *buffer)
 {
     int letter;
     char *new_text;
-    int check;
     int amount_rm;
 
     amount_rm = 0;
-    check = 0;
     new_text = malloc(sizeof(char) * stu_strlen(buffer) + 1);
     letter = 0;
     while (count < stu_strlen(buffer)) {
@@ -37,6 +35,6 @@ int core_dlt(int count, char *to_delete, char *buffer)
         count += 1;
         letter = 0;
     }
-    new_text[count - amount_rm] = '\n';
+    new_text[count - amount_rm] = '\0';
     return freeable(new_text);
 }
