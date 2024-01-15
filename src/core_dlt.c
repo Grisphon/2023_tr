@@ -20,7 +20,7 @@ int core_dlt(int count, char *to_delete, char *buffer)
 
     amount_rm = 0;
     check = 0;
-    new_text = malloc(sizeof(char) * stu_strlen(buffer));
+    new_text = malloc(sizeof(char) * stu_strlen(buffer) + 1);
     letter = 0;
     while (count < stu_strlen(buffer)) {
         while (letter < stu_strlen(to_delete)) {
@@ -37,5 +37,6 @@ int core_dlt(int count, char *to_delete, char *buffer)
         count += 1;
         letter = 0;
     }
+    new_text[count - amount_rm] = '\n';
     return freeable(new_text);
 }

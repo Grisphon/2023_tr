@@ -33,7 +33,7 @@ int core_kp(int count, char *to_keep, char *buffer)
 
     amount_rm = 0;
     check = 0;
-    new_text = malloc(sizeof(char) * stu_strlen(buffer));
+    new_text = malloc(sizeof(char) * stu_strlen(buffer) + 1);
     letter = 0;
     while (count < stu_strlen(buffer)) {
         while (letter < stu_strlen(to_keep)) {
@@ -54,5 +54,6 @@ int core_kp(int count, char *to_keep, char *buffer)
         count += 1;
         letter = 0;
     }
+    new_text[count - amount_rm] = '\0';
     return freeable(new_text);
 }

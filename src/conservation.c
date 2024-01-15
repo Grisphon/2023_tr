@@ -9,13 +9,15 @@ int conservation(char *to_keep)
     int size_read;
 
     count = 0;
-    buffer = malloc(sizeof(char) * 100);
+    buffer = malloc(sizeof(char) * 101);
     size_read = read(0, buffer, 100);
+    buffer[size_read] = '\0';
     while (size_read > 0) {
         core_kp(count, to_keep, buffer);
         free(buffer);
-        buffer = malloc(sizeof(char) * 100);
+        buffer = malloc(sizeof(char) * 101);
         size_read = read(0, buffer, 100);
+        buffer[size_read] = '\0';
     }
     free(buffer);
     return 0;
