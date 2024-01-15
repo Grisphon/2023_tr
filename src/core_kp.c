@@ -16,7 +16,7 @@ static int has_carriage_return(char *option)
     int count;
 
     count = 0;
-    while (count < stu_strlen(option)) {
+    while (option[count] != '\0') {
         if (option[count] == '\\' && option[count + 1] == 'n')
             return 1;
         count += 1;
