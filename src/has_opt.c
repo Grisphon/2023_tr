@@ -1,6 +1,6 @@
 #include "stutr.h"
 
-int stu_strchr(const char *str, char subject)
+static int stu_strchr(const char *str, char subject)
 {
     int count;
 
