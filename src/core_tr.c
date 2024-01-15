@@ -2,10 +2,12 @@
 #include <unistd.h>
 #include "stutr.h"
 
-int core_tr(int count, char *to_replace, char *substitutes, char *buffer)
+int core_tr(char *to_replace, char *substitutes, char *buffer)
 {
     int letter;
+    int count;
 
+    count = 0;
     letter = 0;
     while (count < stu_strlen(buffer)) {
         while (letter < stu_strlen(to_replace)) {
